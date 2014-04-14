@@ -14,12 +14,18 @@
 
 class Die
   def initialize(labels)
+  	@labels = labels
+    if labels.length < 1
+    	raise ArgumentError.new("List cannot be empty.")
+    end
   end
 
   def sides
+    return @labels.length
   end
-
+  
   def roll
+    return @labels.sample
   end
 end
 

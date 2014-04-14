@@ -43,6 +43,18 @@ method attempts to assign members with different members for each unit, if possi
 dbc_names = ["D. Kevin Kang", "Adam Dziuk", "Aki Suzuki", "Adam Ryssdal", "Dominick Oddo", "Eoin McMillan", "Allison Wong", "Andra Lally", "Chris Aubuchon", "Hunter Chapman", "Jon Pabico", "Christiane Kammeri", "Clark Hinchcliff", "Devin Johnson", "Parjam Davoody", "C.J. Jameson", "Sebastian Belmar", "Eiko Seino", "Samuel Davis", "Jacob Persing", "Anup Pradhan", "Yuzu Saijo", "Shawn Seibert", "William Bushyhead"]
 
 def grouping(arr)
+	rand_group = arr.shuffle
+	rand_group.each_slice(4).to_a	
+end
+
+grouping(dbc_names)
+
+puts "#{grouping(dbc_names)}"
+=begin
+	
+dbc_names = ["D. Kevin Kang", "Adam Dziuk", "Aki Suzuki", "Adam Ryssdal", "Dominick Oddo", "Eoin McMillan", "Allison Wong", "Andra Lally", "Chris Aubuchon", "Hunter Chapman", "Jon Pabico", "Christiane Kammeri", "Clark Hinchcliff", "Devin Johnson", "Parjam Davoody", "C.J. Jameson", "Sebastian Belmar", "Eiko Seino", "Samuel Davis", "Jacob Persing", "Anup Pradhan", "Yuzu Saijo", "Shawn Seibert", "William Bushyhead"]
+
+def grouping(arr)
 	member_num = arr.count	
 		if member_num / 4
 			arr.group_by {|i| i/4}
@@ -51,8 +63,8 @@ def grouping(arr)
 	end
 
 grouping(dbc_names)
-
-
+	
+=end
 
 
 

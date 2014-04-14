@@ -7,47 +7,14 @@ boggle_board = [["b", "r", "a", "e"],
                 ["e", "c", "l", "r"],
                 ["t", "a", "k", "e"]]
 
-
+puts "#{boggle_board.take(2)}"
 # Part 1: Access multiple elements of a nested array
 
 # Pseudocode
-=begin
-Define a Class Board with the initializer as an array
-Define a Method create_word
-    The method create_word takes 1 argument called coords which will take 0 to many values
-    This method will create a new String based on the row number as first coord and column number as second coord using join
-Define a method get_row that takes one argument
-    it will return all the elements within the row number passed
-Define a method get_col takes one argument
-    Declare variable i and set it to 0
-    Declare empty array column_values
-    Loop through each sub-array and pushing values to column_values
-    incrementing i by 1
-=end  
 
 # Initial Solution
-class Board
-  def initialize(boggle)
-    @boggle = boggle
-  end
-  
-  def get_row(row)
-    @boggle[row]
-  end
-  
-  def get_col(col)
-    
-    col_values = []
-    @boggle.each do |x| 
-      col_values << x [col]
-      end
-    return col_values
-    end
-    
-    def boggle_board(row,col)
-    @boggle[row][col]
-    end
-end
+
+
 # Refactored Solution
 
 
@@ -63,8 +30,12 @@ end
 # Pseudocode
 
 # Initial Solution
+def get_row(board, row)
+    board.fetch(row)
+    return board.fetch(row)
+end
 
-
+puts "#{get_row(boggle_board, 2)}"
 # Refactored Solution
 
 
@@ -82,7 +53,11 @@ end
 # Pseudocode
 
 # Initial Solution
+def get_column(board, column)
+    board.each {|i| i.fetch(column)}
+end
 
+puts "#{get_row(boggle_board, 2)}"
 
 # Refactored Solution
 

@@ -14,18 +14,22 @@
 
 class Die
   def initialize(sides)
-    # code goes here
+    @sides = sides
+    unless sides > 1
+    	raise ArgumentError.new("There needs to be more than 1 side.")
+    end
   end
   
   def sides
-    # code goes here
+    return @sides 
   end
   
   def roll
-    # code goes here
+    rand(1..@sides)
   end
 end
 
+#d = Die.new(10)
 
 
 # 4. Refactored Solution
