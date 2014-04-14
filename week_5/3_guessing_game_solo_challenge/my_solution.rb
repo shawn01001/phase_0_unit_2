@@ -8,17 +8,45 @@
 # Input:
 # Output:
 # Steps:
-
+=begin
+	add array of guesses
+	
+=end
 
 # 3. Initial Solution
 
 class GuessingGame
-  def initialize(answer)
-    # Your initialization code goes here
-  end
+  	def initialize(answer)
+  	@answer = answer
+    	unless answer >= 0 
+    		raise ArgumentError.new("Please choose a positive integer.")
+    	end
+    end
   
-  # Make sure you define the other required methods, too
+  	def guess(guess)
+  	@guess = guess
+		if @guess > @answer 
+			return :high
+		elsif @guess < @answer
+			return :low
+		elsif @guess == @answer
+			return :correct
+		else
+			return "error"
+		end
+	end
+
+  	def solved?
+	  	unless @guess == @answer 
+	  		return false
+	  	end
+		if @guess == @answer 
+			return true
+		end
+	end
 end
+
+
 
 
 
