@@ -1,6 +1,6 @@
 # U2.W5: Virus Predictor
 
-# I worked on this challenge [by myself, with: ].
+# I worked on this challenge [with: Butler Bushyhead].
 
 # The program is taking state data and calculating deaths, and spead of virus spread if an outbreak were to occur.
 # 'state_data' simulates a database of US state data.  It's in the format of nested key value pairs.  
@@ -10,6 +10,7 @@
 # the default to view class methods is public.  'private' hides methods (they can't be called outside the class) and minimizes the interface a user is exposed to.  'virus_effects' can't be made private, as it's needed if the other methods are private.
 # 'predicted_deaths' Estimates death-count based on population and population density
 # 'speed_of_spread' Estimates speend of virus spread based on population_density
+
 require_relative 'state_data'
 
 class VirusPredictor
@@ -22,12 +23,12 @@ class VirusPredictor
     @next_region = regional_spread
   end
 
-  def virus_effects  #HINT: What is the SCOPE of instance variables?
+  def virus_effects  
     predicted_deaths(@population_density, @population, @state)
     speed_of_spread(@population_density, @state)
   end
 
-  private  #what is this?  what happens if it were cut and pasted above the virus_effects method
+  private  
 
   def predicted_deaths(population_density, population, state)
     if @population_density >= 200
@@ -46,7 +47,7 @@ class VirusPredictor
 
   end
 
-  def speed_of_spread(population_density, state) #in months
+  def speed_of_spread(population_density, state) 
     speed = 0.0
 
     if @population_density >= 200
@@ -91,26 +92,11 @@ x = VirusPredictor.new(i, STATE_DATA[i][:population_density], STATE_DATA[i][:pop
 x.virus_effects
 }
 
-# Class needs to create full report using matching of new states arr and key in STATE_DATA
+# Reflection
 =begin
-class Report
-  def get_states
-    STATES
-  end
-  
-  STATES = STATE_DATA
-
-  def states
-    us_states = []
-    STATES.keys do |i|
-      us_states << i
-    end
-  end
-  def full_report
-    for us_states.each do |x|
-    x = VirusPredictor.new(x, STATES[x][:population_density], STATES[x][:population], STATES[x][:region], STATES[x][:regional_spread])
-    x.virus_effects
-    end
-  end
-end
+It was great working on this with Butler, as I started my own method (creating a 2nd class) before pairing with him.
+I knew his initial idea was a far more simple solution than mine, 
+so we ended up exploring that, and in the end, his solution took less code and is much easier to read.
+The hardest part of this challenge was correctly calling the nested hash data, 
+as we kept getting errors or returning the index instead of the key or value.  
 =end
