@@ -15,15 +15,55 @@
 
 
 # 2. Pseudocode
-
-
+=begin
+Define class "PezDispenser"
+Define method 'initialize' with argument: array (flavors)
+Define method 'count_pez' 
+	returns number of pez in dispenser
+Define method 'remove_pez'
+	deletes pez in array with index = 0
+	puts "You ate one #{flavor} pez"
+	raise argument if flavors = []
+Define method 'add_pez' with one argument (flavor)
+	adds pez to dispenser 
+	raise argument if array.count >= 12
+Define method 'pez_flavors'
+	returns flavors in order	
+=end
 
 # 3. Initial Solution
 
 class PezDispenser
- 
-# your code here!
- 
+	def initialize(flavors)
+		unless flavors.is_a?(Array)
+			raise ArgumentError.new("Please initialize with a delicious array of pez flavors.")
+		end
+		@flavors = flavors
+	end
+
+	def count_pez
+		if @flavors.count > 0
+			puts "There are #{@flavors.count} pez in this dispenser"
+		else
+			puts "The Pez dispenser is empty."
+		end
+	end
+
+	def remove_pez
+		puts "You removed and ate one #{@flavors.shift} pez.  Yum!"
+	end
+
+	def add_pez(flavor)
+		unless flavors.is_a?(String)
+			raise ArgumentError.new("Your added flavor must be in string form.")
+		end
+		@flavors << flavor
+		puts "You added #{flavor} to the Pez dispenser." 
+	end
+
+	def pez_flavors
+		@flavors
+	end
 end
  
 
@@ -36,9 +76,20 @@ end
 
 
 # 1. DRIVER TESTS GO BELOW THIS LINE
+#Pseudocode for test class
+=begin
+Create class 'PezTests'
+Create assert method to return error if @flavors is empty when remove_pez is called
+Create assert method to return error if @flavors is full when add_pez is called (most pez dispensers hold 12 pez)
+=end
 
-flavors = %w(cherry chocolate cola grape lemon orange peppermint raspberry strawberry).shuffle
-super_mario = PezDispenser.new(flavors)
+class PezTests < Test::Unit::TestCase
+	
+
+	flavors = %w(cherry chocolate cola grape lemon orange peppermint raspberry strawberry).shuffle
+	super_mario = PezDispenser.new(flavors)
+
+
 puts "A new pez dispenser has been created. You have #{super_mario.pez_count} pez!"  
 puts "Here's a look inside the dispenser:"  
 puts super_mario.see_all_pez 
