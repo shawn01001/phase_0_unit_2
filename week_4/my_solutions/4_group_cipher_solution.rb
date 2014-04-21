@@ -71,6 +71,7 @@ def north_korean_cipher(coded_message)
   return decoded_sentence # Returns decoded message as string with all numbers divided by 100.       
 end
 =end
+<<<<<<< HEAD
 
 # Your Refactored Solution
 def north_korean_cipher(coded_message)
@@ -83,6 +84,14 @@ def north_korean_cipher(coded_message)
   
   cipher=Hash[alphabet.collect {|i| [alphabet[alphabet.index(i) + 4], i]}]
   
+=======
+# Your Refactored Solution
+def north_korean_cipher(coded_message)
+  input = coded_message.downcase.split("") #.split splits string into an array with each character being an element; .downcase removes upper-case punctuation to make the string uniform
+  decoded_sentence = [] # creates empty array
+  alphabet = ('a'..'z').to_a + ('a'..'z').to_a
+  cipher=Hash[alphabet.collect {|i| [alphabet[alphabet.index(i) + 4], i]}]
+>>>>>>> FETCH_HEAD
   input.each do |x| # It's looping over each element of input that's been downcased, split, and made in an array.
     found_match = false  # If it turns true, it breaks the loop and wont run, so the default must be false to run until a match is found.
     cipher.each_key do |y| # It's looping over each element of the hash: cipher.
@@ -101,24 +110,41 @@ def north_korean_cipher(coded_message)
         break
       end 
     end
+<<<<<<< HEAD
     
+=======
+>>>>>>> FETCH_HEAD
     if not found_match  # Returning original character if match not found.
       decoded_sentence << x
     end
   end
+<<<<<<< HEAD
   
+=======
+>>>>>>> FETCH_HEAD
   decoded_sentence = decoded_sentence.join("")
  
   if decoded_sentence.match(/\d+/) # This uses regualr expressions to check for the presence of a number. "\d" stands for any digit. "+" stands for any number any amount of times.
     decoded_sentence.gsub!(/\d+/) { |num| num.to_i / 100 } # This takes any number and divides by 100.
   end  
   return decoded_sentence # Returns decoded message as string with all numbers divided by 100.       
+<<<<<<< HEAD
 
 end
+=======
+end
+
+
+
+>>>>>>> FETCH_HEAD
 
 # Driver Code:
 p north_korean_cipher("m^aerx%e&gsoi!") == "i want a coke!" #This is driver code and should print true
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> FETCH_HEAD
 # Find out what Kim Jong Un is saying below and turn it into driver code as well. Driver Code statements should always return "true"
 p north_korean_cipher("syv@tistpi$iex#xli*qswx*hipmgmsyw*erh*ryxvmxmsyw%jsshw^jvsq^syv#1000000#tvsjmxefpi$jevqw.") == "our people eat the most delicious and nutritious foods from our 10000 profitable farms."
 p north_korean_cipher("syv%ryoiw#evi#liph^xskixliv@fc^kveti-jpezsvih@xsjjii.*hsr'x%xipp&xli#yw!") == "our nukes are held together by grape-flavored toffee. don't tell the us!"
